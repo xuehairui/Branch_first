@@ -1,0 +1,10 @@
+E:\c#\visualstudio_workspace\Branch\demo\bin\Release\demo.exe.config
+E:\c#\visualstudio_workspace\Branch\demo\bin\Release\demo.exe
+E:\c#\visualstudio_workspace\Branch\demo\bin\Release\demo.pdb
+E:\c#\visualstudio_workspace\Branch\demo\bin\Release\LitJson.dll
+E:\c#\visualstudio_workspace\Branch\demo\obj\Release\demo.Form1.resources
+E:\c#\visualstudio_workspace\Branch\demo\obj\Release\demo.Properties.Resources.resources
+E:\c#\visualstudio_workspace\Branch\demo\obj\Release\demo.csproj.GenerateResource.Cache
+E:\c#\visualstudio_workspace\Branch\demo\obj\Release\demo.exe
+E:\c#\visualstudio_workspace\Branch\demo\obj\Release\demo.pdb
+E:\c#\visualstudio_workspace\Branch\demo\obj\Release\demo.csprojResolveAssemblyReference.cache

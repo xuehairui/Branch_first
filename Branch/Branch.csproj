@@ -1,0 +1,720 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4E6F352F-1B0E-4703-B47B-2BD2CAB71D58}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Branch</RootNamespace>
+    <AssemblyName>Branch</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AopSdk, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\admin\Desktop\支付接口\支付宝\F2FPay_Demo_DotNet\Projects\Alipay-demo-project\F2FPayDll\bin\Debug\AopSdk.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJson">
+      <HintPath>D:\工作\分店\支付宝\LitJson.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\工作\分店\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\工作\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\工作\分店\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="app_code\Config.cs" />
+    <Compile Include="app_code\LogHelper.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchAssociatorInfoDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchDailyReceiveGoodsDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchDeliverAmountInfoDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchPayInfoDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchRelUserRoleDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchRoleDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchUserDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchZcBranchInfoDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchZcBranchTotalDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchZcClassifyInfoDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchZcGoodsMasterDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchZcOrderHistoryDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchZcOrderHistoryItemDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchZcOrderRefundDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchZcOrderRefundItemDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchZcOrderRefuseDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchZcOrderRefuseItemDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchZcOrderSorteDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchZcOrderTransitDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchZcOrderTransitItemDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchZcProviderInfoDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchZcStoreHouseDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchZcUserInfoDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\BranchZcZoningDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\CustomerDeliveryDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\DownloadIdenifyDao.cs" />
+    <Compile Include="com.proem.exm.dao\branch\UploadDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\AssociatorInfoDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\DailyReceiveGoodsDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\DeliverAmountInfoDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\PayInfoDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\RefundInfoDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\RelUserRoleDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\RoleDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\SetCodeToBranchDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\UserDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\ZcBranchInfoDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\ZcBranchTotalDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\ZcClassifyInfoDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\ZcGoodsMasterDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\ZcOrderHistoryDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\ZcOrderHistoryItemDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\ZcOrderRefuseDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\ZcOrderRefuseItemDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\ZcOrderSorteDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\ZcOrderTransitDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\ZcOrderTransitItemDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\ZcProviderInfoDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\ZcStoreHouseDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\ZcUserInfoDao.cs" />
+    <Compile Include="com.proem.exm.dao\master\ZcZoningDao.cs" />
+    <Compile Include="com.proem.exm.domain\AssociatorInfo.cs" />
+    <Compile Include="com.proem.exm.domain\DailyReceiveGoods.cs" />
+    <Compile Include="com.proem.exm.domain\DeliverAmountInfo.cs" />
+    <Compile Include="com.proem.exm.domain\DownloadIdentify.cs" />
+    <Compile Include="com.proem.exm.domain\PayInfo.cs" />
+    <Compile Include="com.proem.exm.domain\RelUserRole.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.domain\Role.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.domain\UploadInfo.cs" />
+    <Compile Include="com.proem.exm.domain\User.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.domain\ZcBranchInfo.cs" />
+    <Compile Include="com.proem.exm.domain\ZcBranchTotal.cs" />
+    <Compile Include="com.proem.exm.domain\ZcClassIfyInfo.cs" />
+    <Compile Include="com.proem.exm.domain\ZcGoodsMaster.cs" />
+    <Compile Include="com.proem.exm.domain\ZcOrderHistory.cs" />
+    <Compile Include="com.proem.exm.domain\ZcOrderHistoryItem.cs" />
+    <Compile Include="com.proem.exm.domain\ZcOrderRefund.cs" />
+    <Compile Include="com.proem.exm.domain\ZcOrderRefundItem.cs" />
+    <Compile Include="com.proem.exm.domain\ZcOrderRefuse.cs" />
+    <Compile Include="com.proem.exm.domain\ZcOrderRefuseItem.cs" />
+    <Compile Include="com.proem.exm.domain\ZcOrderSorte.cs" />
+    <Compile Include="com.proem.exm.domain\ZcOrderTransit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.domain\ZcOrderTransitItem.cs" />
+    <Compile Include="com.proem.exm.domain\ZcProviderInfo.cs" />
+    <Compile Include="com.proem.exm.domain\ZcStoreHouse.cs" />
+    <Compile Include="com.proem.exm.domain\ZcUserInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.domain\ZcZoning.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchAssociatorInfoService.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchDailyReceiveGoodsService.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchDeliverAmountInfoService.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchPayInfoService.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchRelUserRoleService.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchRoleService.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchUserService.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchZcBranchInfoService.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchZcBranchTotalService.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchZcClassifyInfoService.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchZcGoodsMasterService.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchZcOrderHistoryItemService.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchZcOrderHistoryService.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchZcOrderRefundItemService.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchZcOrderRefundService.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchZcOrderRefuseItemService.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchZcOrderRefuseService.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchZcOrderSorteService.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchZcOrderTransitItemService.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchZcOrderTransitService.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchZcProviderInfoService.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchZcStoreHouseService.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchZcUserInfoService.cs" />
+    <Compile Include="com.proem.exm.service\branch\BranchZcZoningService.cs" />
+    <Compile Include="com.proem.exm.service\main\CustomerDeliveryService.cs" />
+    <Compile Include="com.proem.exm.service\main\DownloadDataService.cs" />
+    <Compile Include="com.proem.exm.service\main\DownloadIdentifyService.cs" />
+    <Compile Include="com.proem.exm.service\master\AssociatorInfoService.cs" />
+    <Compile Include="com.proem.exm.service\master\DailyReceiveGoodsService.cs" />
+    <Compile Include="com.proem.exm.service\master\DeliverAmountInfoService.cs" />
+    <Compile Include="com.proem.exm.service\master\PayInfoService.cs" />
+    <Compile Include="com.proem.exm.service\master\RefundInfoService.cs" />
+    <Compile Include="com.proem.exm.service\master\RelUserRoleService.cs" />
+    <Compile Include="com.proem.exm.service\master\RoleService.cs" />
+    <Compile Include="com.proem.exm.service\master\SetCodeToBranchService.cs" />
+    <Compile Include="com.proem.exm.service\master\UserService.cs" />
+    <Compile Include="com.proem.exm.service\master\ZcBranchInfoService.cs" />
+    <Compile Include="com.proem.exm.service\master\ZcBranchTotalService.cs" />
+    <Compile Include="com.proem.exm.service\master\ZcClassifyInfoService.cs" />
+    <Compile Include="com.proem.exm.service\master\ZcGoodsMasterService.cs" />
+    <Compile Include="com.proem.exm.service\master\ZcOrderHistoryItemService.cs" />
+    <Compile Include="com.proem.exm.service\master\ZcOrderHistoryService.cs" />
+    <Compile Include="com.proem.exm.service\master\ZcOrderRefuseItemService.cs" />
+    <Compile Include="com.proem.exm.service\master\ZcOrderRefuseService.cs" />
+    <Compile Include="com.proem.exm.service\master\ZcOrderSorteService.cs" />
+    <Compile Include="com.proem.exm.service\master\ZcOrderTransitItemService.cs" />
+    <Compile Include="com.proem.exm.service\master\ZcOrderTransitService.cs" />
+    <Compile Include="com.proem.exm.service\master\ZcProviderInfoService.cs" />
+    <Compile Include="com.proem.exm.service\master\ZcStoreHouseService.cs" />
+    <Compile Include="com.proem.exm.service\master\ZcUserInfoService.cs" />
+    <Compile Include="com.proem.exm.service\master\ZcZoningService.cs" />
+    <Compile Include="com.proem.exm.util\BranchPay.cs" />
+    <Compile Include="com.proem.exm.util\Constant.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.util\DataUploadTask.cs" />
+    <Compile Include="com.proem.exm.util\DBHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.util\GoodsPrint.cs" />
+    <Compile Include="com.proem.exm.util\LoginUserInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.util\MD5Util.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.util\MysqlDBHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.util\OracleUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.util\OrderEnum.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.util\ParentWindow.cs" />
+    <Compile Include="com.proem.exm.util\PingTask.cs" />
+    <Compile Include="com.proem.exm.util\WindowFlag.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.util\ZcOrderHelper.cs" />
+    <Compile Include="com.proem.exm.window\history\HIQueryList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\history\HIQueryList.Designer.cs">
+      <DependentUpon>HIQueryList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\history\HistoryInform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\history\HistoryInform.Designer.cs">
+      <DependentUpon>HistoryInform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\main\BranchHandover.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\main\BranchHandover.Designer.cs">
+      <DependentUpon>BranchHandover.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\main\BranchLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\main\BranchLogin.designer.cs">
+      <DependentUpon>BranchLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\main\BranchMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\main\BranchMain.designer.cs">
+      <DependentUpon>BranchMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\main\DownloadData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\main\DownloadData.Designer.cs">
+      <DependentUpon>DownloadData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\main\SetCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\main\SetCode.Designer.cs">
+      <DependentUpon>SetCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\order\CardPay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\order\CardPay.Designer.cs">
+      <DependentUpon>CardPay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\order\CDBalance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\order\CDBalance.Designer.cs">
+      <DependentUpon>CDBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\order\CDDocketList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\order\CDDocketList.Designer.cs">
+      <DependentUpon>CDDocketList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\order\CDPrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\order\CDPrompt.Designer.cs">
+      <DependentUpon>CDPrompt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\order\CDQueryList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\order\CDQueryList.Designer.cs">
+      <DependentUpon>CDQueryList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\order\controller\CustomerDeliveryController.cs" />
+    <Compile Include="com.proem.exm.window\order\CustomerDelivery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\order\CustomerDelivery.Designer.cs">
+      <DependentUpon>CustomerDelivery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\order\PayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\order\PayForm.Designer.cs">
+      <DependentUpon>PayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\order\RefuseReason.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\order\RefuseReason.Designer.cs">
+      <DependentUpon>RefuseReason.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\order\WxPayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\order\WxPayForm.Designer.cs">
+      <DependentUpon>WxPayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\order\ZFBPay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\order\ZFBPay.Designer.cs">
+      <DependentUpon>ZFBPay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\receive\DeliveryGoods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\receive\DeliveryGoods.designer.cs">
+      <DependentUpon>DeliveryGoods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\receive\DGPrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\receive\DGPrompt.Designer.cs">
+      <DependentUpon>DGPrompt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\retreat\ReturnGoods.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\retreat\ReturnGoods.Designer.cs">
+      <DependentUpon>ReturnGoods.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\retreat\RGBuyerChoose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\retreat\RGBuyerChoose.Designer.cs">
+      <DependentUpon>RGBuyerChoose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\retreat\RGReturnIdChoose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\retreat\RGReturnIdChoose.Designer.cs">
+      <DependentUpon>RGReturnIdChoose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\retreat\RGReturnList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\retreat\RGReturnList.Designer.cs">
+      <DependentUpon>RGReturnList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\retreat\RGROperatorChoose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\retreat\RGROperatorChoose.Designer.cs">
+      <DependentUpon>RGROperatorChoose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\retreat\RGSupplierChoose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\retreat\RGSupplierChoose.Designer.cs">
+      <DependentUpon>RGSupplierChoose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\systemsetting\SystemSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\systemsetting\SystemSettings.Designer.cs">
+      <DependentUpon>SystemSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\CDBDCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\CDBDCard.Designer.cs">
+      <DependentUpon>CDBDCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\CDBDetial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\CDBDetial.Designer.cs">
+      <DependentUpon>CDBDetial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\CDBDMoney.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\CDBDMoney.Designer.cs">
+      <DependentUpon>CDBDMoney.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\CDBShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\CDBShow.Designer.cs">
+      <DependentUpon>CDBShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\GCBrand.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\GCBrand.Designer.cs">
+      <DependentUpon>GCBrand.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\GCSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\GCSupplier.Designer.cs">
+      <DependentUpon>GCSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\GCType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\GCType.Designer.cs">
+      <DependentUpon>GCType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\GoodsChoose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\GoodsChoose.Designer.cs">
+      <DependentUpon>GoodsChoose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\ItemInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\ItemInput.Designer.cs">
+      <DependentUpon>ItemInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\QueryGoods.cs" />
+    <Compile Include="com.proem.exm.window\util\Scan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\Scan.Designer.cs">
+      <DependentUpon>Scan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\ScanGood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\ScanGood.Designer.cs">
+      <DependentUpon>ScanGood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\Times.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="com.proem.exm.window\util\Times.Designer.cs">
+      <DependentUpon>Times.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WxPayAPI\business\DownloadBill.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WxPayAPI\business\JsApiPay.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WxPayAPI\business\MicroPay.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WxPayAPI\business\NativeNotify.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WxPayAPI\business\NativePay.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WxPayAPI\business\OrderQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WxPayAPI\business\Refund.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WxPayAPI\business\RefundQuery.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WxPayAPI\business\ResultNotify.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WxPayAPI\lib\Config.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WxPayAPI\lib\Data.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WxPayAPI\lib\Exception.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WxPayAPI\lib\HttpService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WxPayAPI\lib\Log.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WxPayAPI\lib\Notify.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WxPayAPI\lib\WxPayApi.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="com.proem.exm.window\history\HIQueryList.resx">
+      <DependentUpon>HIQueryList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\history\HistoryInform.resx">
+      <DependentUpon>HistoryInform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\main\BranchHandover.resx">
+      <DependentUpon>BranchHandover.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\main\BranchLogin.resx">
+      <DependentUpon>BranchLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\main\BranchMain.resx">
+      <DependentUpon>BranchMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\main\DownloadData.resx">
+      <DependentUpon>DownloadData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\main\SetCode.resx">
+      <DependentUpon>SetCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\order\CardPay.resx">
+      <DependentUpon>CardPay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\order\CDBalance.resx">
+      <DependentUpon>CDBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\order\CDDocketList.resx">
+      <DependentUpon>CDDocketList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\order\CDPrompt.resx">
+      <DependentUpon>CDPrompt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\order\CDQueryList.resx">
+      <DependentUpon>CDQueryList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\order\CustomerDelivery.resx">
+      <DependentUpon>CustomerDelivery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\order\PayForm.resx">
+      <DependentUpon>PayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\order\RefuseReason.resx">
+      <DependentUpon>RefuseReason.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\order\WxPayForm.resx">
+      <DependentUpon>WxPayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\order\ZFBPay.resx">
+      <DependentUpon>ZFBPay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\receive\DeliveryGoods.resx">
+      <DependentUpon>DeliveryGoods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\receive\DGPrompt.resx">
+      <DependentUpon>DGPrompt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\retreat\ReturnGoods.resx">
+      <DependentUpon>ReturnGoods.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\retreat\RGBuyerChoose.resx">
+      <DependentUpon>RGBuyerChoose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\retreat\RGReturnIdChoose.resx">
+      <DependentUpon>RGReturnIdChoose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\retreat\RGReturnList.resx">
+      <DependentUpon>RGReturnList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\retreat\RGROperatorChoose.resx">
+      <DependentUpon>RGROperatorChoose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\retreat\RGSupplierChoose.resx">
+      <DependentUpon>RGSupplierChoose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\systemsetting\SystemSettings.resx">
+      <DependentUpon>SystemSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\util\CDBDCard.resx">
+      <DependentUpon>CDBDCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\util\CDBDetial.resx">
+      <DependentUpon>CDBDetial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\util\CDBDMoney.resx">
+      <DependentUpon>CDBDMoney.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\util\CDBShow.resx">
+      <DependentUpon>CDBShow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\util\GCBrand.resx">
+      <DependentUpon>GCBrand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\util\GCSupplier.resx">
+      <DependentUpon>GCSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\util\GCType.resx">
+      <DependentUpon>GCType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\util\GoodsChoose.resx">
+      <DependentUpon>GoodsChoose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\util\ItemInput.resx">
+      <DependentUpon>ItemInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\util\Scan.resx">
+      <DependentUpon>Scan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\util\ScanGood.resx">
+      <DependentUpon>ScanGood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="com.proem.exm.window\util\Times.resx">
+      <DependentUpon>Times.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Fakes Include="Fakes\LitJson.fakes" />
+    <None Include="Demo\alipay_rsa_public_key.pem" />
+    <None Include="Demo\rsa_private_key.pem" />
+    <None Include="Demo\rsa_public_key.pem" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="WxPayAPI\cert\apiclient_cert.p12" />
+    <None Include="WxPayAPI\cert\apiclient_cert.pem" />
+    <None Include="WxPayAPI\cert\apiclient_key.pem" />
+    <None Include="WxPayAPI\cert\rootca.pem" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_search.png" />
+    <None Include="Resources\login-error-31.png" />
+    <None Include="Resources\login-error-3.png" />
+    <None Include="Resources\main-2.png" />
+    <None Include="Resources\mk_08_press.png" />
+    <None Include="Resources\mk_07_press.png" />
+    <None Include="Resources\mk_06_press.png" />
+    <None Include="Resources\mk_05_press.png" />
+    <None Include="Resources\mk_04_press.png" />
+    <None Include="Resources\mk_03_press.png" />
+    <None Include="Resources\mk_01_press.png" />
+    <None Include="Resources\icon_user.png" />
+    <None Include="Resources\mk_07.png" />
+    <None Include="Resources\mk_06.png" />
+    <None Include="Resources\mk_08.png" />
+    <None Include="Resources\mk_05.png" />
+    <None Include="Resources\mk_02.png" />
+    <None Include="Resources\mk_04.png" />
+    <None Include="Resources\mk_03.png" />
+    <None Include="Resources\mk_02_press.png" />
+    <None Include="Resources\mk_01.png" />
+    <None Include="Resources\logo.png" />
+    <None Include="Resources\login_bg_4_2.png" />
+    <None Include="Resources\login_bg_4.png" />
+    <None Include="Resources\login_bg_1.png" />
+    <None Include="Resources\login_bg_3.png" />
+    <None Include="Resources\login_bg_2.png" />
+    <None Include="Resources\login_bg_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="log\log.txt" />
+    <Content Include="WxPayAPI\cert\证书使用说明.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\admin\Desktop\支付接口\支付宝\F2FPay_Demo_DotNet\Projects\Alipay-demo-project\F2FPayDll\F2FPayDll.csproj">
+      <Project>{ec6da18d-0532-4e73-ba69-a575a724c8bb}</Project>
+      <Name>F2FPayDll</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

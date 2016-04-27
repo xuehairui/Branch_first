@@ -1,0 +1,3 @@
+2016-04-21 10:58:07,693 [9] INFO  Branch.com.proem.exm.service.main.DownloadDataService [(null)] - 删除zc_goods_master耗时 ： 196
+2016-04-21 10:58:08,415 [9] INFO  Branch.com.proem.exm.service.main.DownloadDataService [(null)] - 从oracle 查询zc_goods_master耗时 ： 556
+2016-04-21 10:58:11,234 [9] INFO  Branch.com.proem.exm.service.main.DownloadDataService [(null)] - 下载zc_goods_master耗时 ： 2816
